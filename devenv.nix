@@ -7,28 +7,13 @@
 }: {
   # https://devenv.sh/basics/
   env.GREET = "devenv";
+  env.DATABASE_URL = "postgres://postgres:dr0w.Ssap@localhost:5432/postgres";
 
   # https://devenv.sh/packages/
-  packages = with pkgs; [git pkg-config openssl];
+  packages = with pkgs; [git pkg-config openssl postgresql_16];
 
   # https://devenv.sh/languages/
   languages.rust.enable = true;
-
-  # https://devenv.sh/processes/
-  processes.cargo-watch.exec = "cargo-watch";
-
-  # https://devenv.sh/services/
-  # services.postgres.enable = true;
-
-  # https://devenv.sh/scripts/
-  scripts.hello.exec = ''
-    echo hello from $GREET
-  '';
-
-  enterShell = ''
-    hello
-    git --version
-  '';
 
   # https://devenv.sh/tasks/
   # tasks = {
