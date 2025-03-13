@@ -9,13 +9,13 @@
   env.GREET = "devenv";
 
   # https://devenv.sh/packages/
-  packages = [pkgs.git];
+  packages = with pkgs; [git pkg-config openssl];
 
   # https://devenv.sh/languages/
   languages.rust.enable = true;
 
   # https://devenv.sh/processes/
-  # processes.cargo-watch.exec = "cargo-watch";
+  processes.cargo-watch.exec = "cargo-watch";
 
   # https://devenv.sh/services/
   # services.postgres.enable = true;
